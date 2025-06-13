@@ -17,6 +17,7 @@ This is an enhanced fork of [WhisperX](https://github.com/m-bain/whisperX) with 
 - **Fixed Gender Misclassification**: Resolved issues where male voices were incorrectly classified as female
 - **Enhanced Audio Features**: Improved ECAPA-TDNN embeddings with proper neural network weights
 - **Better Speaker Labels**: Outputs `Male_SPEAKER_00`, `Female_SPEAKER_01` instead of generic `SPEAKER_00`
+- **Real-World Testing**: LibriSpeech demo samples with comprehensive evaluation framework
 - **HuggingFace Token Support**: Seamless integration with optimal diarization models
 
 ### Performance Improvements
@@ -58,9 +59,9 @@ git checkout gender-classification
 uv sync --all-extras --dev
 ```
 
-**Option 4: Standard Installation**
+**Option 4: Direct Installation from Fork**
 ```bash
-pip install whisperx
+pip install git+https://github.com/GenieX-AI/whisperX-custom.git@gender-classification
 ```
 
 ### Environment Setup
@@ -198,6 +199,7 @@ This project maintains the same license as the original WhisperX repository.
 - **OpenAI** for Whisper
 - **PyAnnote Audio** for diarization models
 - **HuggingFace** for model hosting and ecosystem
+- **[Claude Code](https://www.anthropic.com/claude-code)** by Anthropic for agentic development assistance
 
 ---
 
