@@ -4,10 +4,10 @@
 User wanted to continue WhisperX Phase 1 implementation after a rebase/conflict resolution, specifically to test and ensure the gender classification functionality was working properly.
 
 ## Problem Discovery
-During testing, discovered that gender classification was incorrectly classifying all male voices as female speakers with high confidence (1.0), despite all test audio containing only male voices.
+During testing, discovered that gender classification was incorrectly classifying male voices as female speakers with high confidence (1.0), despite all test audio containing only male voices. This was a result using random weights in ECAPA.
 
 ## 4-Agent Sequential Approach
-User requested a structured 4-agent approach to properly fix the gender classification:
+User requested a structured 4-agent (sequential) approach to properly fix the gender classification:
 
 ### Agent 1 (Research) - COMPLETED
 **Task**: Investigate proper gender classification methods for speech
