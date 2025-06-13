@@ -78,7 +78,7 @@ class DiarizationPipeline:
                     })
                 # Apply gender classification
                 print("Applying gender classification...")
-                enhanced_segments = self.gender_classifier.process_segments(audio_path, segments_list)
+                enhanced_segments = self.gender_classifier.process_segments(segments_list, audio_path)
                 # Update dataframe with gender information
                 for i, segment in enumerate(enhanced_segments):
                     if i < len(diarize_df):

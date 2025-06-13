@@ -4,14 +4,15 @@ WhisperX Comprehensive Evaluation Summary
 Test Configuration:
   Model: base
   Device: cpu
+  HF Token: ✅ Enabled
   Samples: 3
-  Timestamp: 2025-06-12_17-58-56
+  Timestamp: 2025-06-13_15-32-03
 
 ASR Performance:
   Success Rate: 100.0%
-  Word Error Rate (WER): 0.178
-  Character Error Rate (CER): 0.075
-  Accuracy: 82.2%
+  Word Error Rate (WER): 0.125
+  Character Error Rate (CER): 0.031
+  Accuracy: 87.5%
   Real-time Factor: 0.12x
 
 Diarization Performance:

@@ -20,11 +20,19 @@ from typing import Dict, List, Tuple
 import warnings
 warnings.filterwarnings("ignore")
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not available, use system environment variables
+
 class WhisperXEvaluator:
-    def __init__(self, device="cpu", model_size="base"):
+    def __init__(self, device="cpu", model_size="base", hf_token=None):
         """Initialize the comprehensive evaluator"""
         self.device = device
         self.model_size = model_size
+        self.hf_token = hf_token or os.getenv('HF_TOKEN')
         
         # Initialize paths
         self.project_root = Path("/Users/user/Desktop/WhisperX")
@@ -43,6 +51,7 @@ class WhisperXEvaluator:
             "test_info": {
                 "model_size": model_size,
                 "device": device,
+                "hf_token_enabled": bool(self.hf_token),
                 "timestamp": time.strftime("%Y-%m-%d_%H-%M-%S"),
                 "num_samples": len(self.test_samples)
             },
@@ -64,6 +73,13 @@ class WhisperXEvaluator:
         """Initialize all WhisperX models"""
         print("🤖 Initializing WhisperX models...")
         
+        # Display HF token status
+        if self.hf_token:
+            print("  ✅ HuggingFace token detected - using optimal diarization models")
+        else:
+            print("  ⚠️  No HuggingFace token - using fallback diarization (may have reduced performance)")
+            print("     Set HF_TOKEN environment variable or pass hf_token parameter for optimal results")
+        
         # ASR Model
         print(f"  Loading ASR model ({self.model_size})...")
         self.asr_model = whisperx.load_model(self.model_size, self.device, compute_type="int8")
@@ -84,7 +100,7 @@ class WhisperXEvaluator:
         try:
             from whisperx.diarize import DiarizationPipeline
             self.diarize_model = DiarizationPipeline(
-                use_auth_token=None,
+                use_auth_token=self.hf_token,
                 device=self.device,
                 enable_gender_classification=True
             )
@@ -132,9 +148,9 @@ class WhisperXEvaluator:
                 if result.get("segments"):
                     predicted_text = " ".join([seg["text"].strip() for seg in result["segments"]])
                 
-                # Calculate metrics (case-insensitive for better comparison)
-                gt_normalized = ground_truth.upper()
-                pred_normalized = predicted_text.upper()
+                # Calculate metrics (normalized to lowercase for fairer comparison)
+                gt_normalized = ground_truth.lower()
+                pred_normalized = predicted_text.lower()
                 
                 sample_wer = wer(gt_normalized, pred_normalized) if pred_normalized else 1.0
                 sample_cer = cer(gt_normalized, pred_normalized) if pred_normalized else 1.0
@@ -391,6 +407,7 @@ class WhisperXEvaluator:
             f.write(f"Test Configuration:\n")
             f.write(f"  Model: {test_info['model_size']}\n")
             f.write(f"  Device: {test_info['device']}\n")
+            f.write(f"  HF Token: {'✅ Enabled' if test_info['hf_token_enabled'] else '❌ Disabled (fallback mode)'}\n")
             f.write(f"  Samples: {test_info['num_samples']}\n")
             f.write(f"  Timestamp: {test_info['timestamp']}\n\n")
             
@@ -449,12 +466,15 @@ class WhisperXEvaluator:
         
         return self.evaluation_results
 
-def main():
+def main(hf_token=None):
     """Main evaluation function"""
     device = "cpu"  # Change to "cuda" if available
     model_size = "base"  # Options: tiny, base, small, medium, large
     
-    evaluator = WhisperXEvaluator(device=device, model_size=model_size)
+    # Get HF token from environment or parameter
+    hf_token = hf_token or os.getenv('HF_TOKEN')
+    
+    evaluator = WhisperXEvaluator(device=device, model_size=model_size, hf_token=hf_token)
     results = evaluator.run_comprehensive_evaluation()
     
     return results

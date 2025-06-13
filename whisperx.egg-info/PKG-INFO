@@ -10,11 +10,13 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: ctranslate2<4.5.0
 Requires-Dist: faster-whisper>=1.1.1
+Requires-Dist: jiwer>=3.1.0
 Requires-Dist: nltk>=3.9.1
 Requires-Dist: numpy>=2.0.2
 Requires-Dist: onnxruntime>=1.19
 Requires-Dist: pandas>=2.2.3
 Requires-Dist: pyannote-audio>=3.3.2
+Requires-Dist: python-dotenv>=1.0.0
 Requires-Dist: torch>=2.5.1
 Requires-Dist: torchaudio>=2.5.1
 Requires-Dist: transformers>=4.48.0
@@ -116,6 +118,14 @@ If you want to modify the code or contribute to the project:
 git clone https://github.com/m-bain/whisperX.git
 cd whisperX
 uv sync --all-extras --dev
+```
+
+For quick development testing without uv:
+
+```bash
+git clone https://github.com/m-bain/whisperX.git
+cd whisperX
+pip install -e .
 ```
 
 > **Note**: The development version may contain experimental features and bugs. Use the stable PyPI release for production environments.
