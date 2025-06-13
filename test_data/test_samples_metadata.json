@@ -1,0 +1,32 @@
+[
+  {
+    "audio_file": "sample_1_speaker_1272.wav",
+    "transcript_file": "sample_1_speaker_1272.txt",
+    "transcript": "MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL",
+    "speaker_id": 1272,
+    "chapter_id": 128104,
+    "duration_seconds": 5.855,
+    "sample_rate": 16000,
+    "source": "LibriSpeech_Demo"
+  },
+  {
+    "audio_file": "sample_2_speaker_1272.wav",
+    "transcript_file": "sample_2_speaker_1272.txt",
+    "transcript": "NOR IS MISTER QUILTER'S MANNER LESS INTERESTING THAN HIS MATTER",
+    "speaker_id": 1272,
+    "chapter_id": 128104,
+    "duration_seconds": 4.815,
+    "sample_rate": 16000,
+    "source": "LibriSpeech_Demo"
+  },
+  {
+    "audio_file": "sample_3_speaker_1272.wav",
+    "transcript_file": "sample_3_speaker_1272.txt",
+    "transcript": "HE TELLS US THAT AT THIS FESTIVE SEASON OF THE YEAR WITH CHRISTMAS AND ROAST BEEF LOOMING BEFORE US SIMILES DRAWN FROM EATING AND ITS RESULTS OCCUR MOST READILY TO THE MIND",
+    "speaker_id": 1272,
+    "chapter_id": 128104,
+    "duration_seconds": 12.485,
+    "sample_rate": 16000,
+    "source": "LibriSpeech_Demo"
+  }
+]
