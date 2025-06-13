@@ -2,6 +2,8 @@ LICENSE
 MANIFEST.in
 README.md
 pyproject.toml
+tests/test_accuracy.py
+tests/test_demo.py
 whisperx/SubtitlesProcessor.py
 whisperx/__init__.py
 whisperx/__main__.py
@@ -10,6 +12,7 @@ whisperx/asr.py
 whisperx/audio.py
 whisperx/conjunctions.py
 whisperx/diarize.py
+whisperx/gender_classifier.py
 whisperx/transcribe.py
 whisperx/types.py
 whisperx/utils.py

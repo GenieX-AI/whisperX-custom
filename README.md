@@ -96,6 +96,14 @@ cd whisperX
 uv sync --all-extras --dev
 ```
 
+For quick development testing without uv:
+
+```bash
+git clone https://github.com/m-bain/whisperX.git
+cd whisperX
+pip install -e .
+```
+
 > **Note**: The development version may contain experimental features and bugs. Use the stable PyPI release for production environments.
 
 You may also need to install ffmpeg, rust etc. Follow openAI instructions here https://github.com/openai/whisper#setup.
