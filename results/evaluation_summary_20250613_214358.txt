@@ -1,0 +1,27 @@
+WhisperX Comprehensive Evaluation Summary
+==================================================
+
+Test Configuration:
+  Model: base
+  Device: cpu
+  HF Token: ✅ Enabled
+  Samples: 3
+  Timestamp: 2025-06-13_21-43-47
+
+ASR Performance:
+  Success Rate: 100.0%
+  Word Error Rate (WER): 0.125
+  Character Error Rate (CER): 0.031
+  Accuracy: 87.5%
+  Real-time Factor: 0.17x
+
+Diarization Performance:
+  Success Rate: 100.0%
+  Estimated DER: 0.156
+  Speakers Detected: 3
+  Total Segments: 4
+
+Gender Classification:
+  Samples Classified: 3
+  Consistency Rate: 100.0%
+  Average Confidence: 0.982

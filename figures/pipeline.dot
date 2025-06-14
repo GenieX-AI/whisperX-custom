@@ -1,0 +1,23 @@
+
+digraph WhisperXPipeline {
+    rankdir=TB;
+    node [shape=box, style=rounded];
+    
+    // Styling
+    input [fillcolor="#e1f5fe", style="rounded,filled", label="Input Audio\n🎵 WAV/MP3"];
+    vad [fillcolor="#f3e5f5", style="rounded,filled", label="Voice Activity\nDetection"];
+    cutmerge [fillcolor="#f3e5f5", style="rounded,filled", label="Cut & Merge\nSegments"];
+    batch [fillcolor="#f3e5f5", style="rounded,filled", label="Batch\nProcessing"];
+    whisper [fillcolor="#2d2d2d", fontcolor="white", style="rounded,filled", label="Whisper ASR\nTranscription"];
+    phoneme [fillcolor="#2d2d2d", fontcolor="white", style="rounded,filled", label="Phoneme\nModel"];
+    alignment [fillcolor="#2d2d2d", fontcolor="white", style="rounded,filled", label="Forced\nAlignment"];
+    diarization [fillcolor="#e8f5e8", style="rounded,filled", label="Speaker\nDiarization"];
+    ecapa [fillcolor="#e8f5e8", style="rounded,filled", label="ECAPA-TDNN\nFeatures"];
+    zscore [fillcolor="#ffeb3b", style="rounded,filled", label="Z-Score\nNormalization\n⚡ Phase 1 Fix"];
+    gender [fillcolor="#e8f5e8", style="rounded,filled", label="Gender\nClassification"];
+    output [fillcolor="#fff3e0", style="rounded,filled", label="Enhanced Output\nMale_SPEAKER_00\nFemale_SPEAKER_01"];
+    
+    // Connections
+    input -> vad -> cutmerge -> batch -> whisper -> phoneme -> alignment;
+    alignment -> diarization -> ecapa -> zscore -> gender -> output;
+}

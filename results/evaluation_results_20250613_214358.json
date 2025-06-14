@@ -1,0 +1,178 @@
+{
+  "test_info": {
+    "model_size": "base",
+    "device": "cpu",
+    "hf_token_enabled": true,
+    "timestamp": "2025-06-13_21-43-47",
+    "num_samples": 3
+  },
+  "asr_results": [
+    {
+      "sample_id": 1,
+      "audio_file": "sample_1_speaker_1272.wav",
+      "duration": 5.855,
+      "ground_truth": "Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel",
+      "predicted": "Mr. Quilter is the apostle of the middle classes, and we are glad to welcome his gospel.",
+      "wer": 0.11764705882352941,
+      "cer": 0.023255813953488372,
+      "processing_time": 1.1656079292297363,
+      "segments_count": 1,
+      "success": true
+    },
+    {
+      "sample_id": 2,
+      "audio_file": "sample_2_speaker_1272.wav",
+      "duration": 4.815,
+      "ground_truth": "Nor is Mr. quilter's manner less interesting than his matter",
+      "predicted": "Nor is Mr. Quilter's manner less interesting than his matter.",
+      "wer": 0.1,
+      "cer": 0.016666666666666666,
+      "processing_time": 1.3184242248535156,
+      "segments_count": 1,
+      "success": true
+    },
+    {
+      "sample_id": 3,
+      "audio_file": "sample_3_speaker_1272.wav",
+      "duration": 12.485,
+      "ground_truth": "He tells us that at this festive season of the year with Christmas and roast beef looming before us similes drawn from eating and its results occur most readily to the mind",
+      "predicted": "He tells us that at this festive season of the year, with Christmas and roast beef looming before us, similarly is drawn from eating and its results occur most readily to the mind.",
+      "wer": 0.15625,
+      "cer": 0.05232558139534884,
+      "processing_time": 1.4607698917388916,
+      "segments_count": 1,
+      "success": true
+    }
+  ],
+  "diarization_results": [
+    {
+      "sample_id": 1,
+      "audio_file": "sample_1_speaker_1272.wav",
+      "duration": 5.855,
+      "speakers_detected": 1,
+      "segments_count": 1,
+      "detected_speech_time": 4.944375000000001,
+      "der_estimate": 0.15552946199829198,
+      "processing_time": 1.6771221160888672,
+      "segments": [
+        {
+          "speaker": "Male_SPEAKER_00",
+          "start": 0.52034375,
+          "end": 5.464718750000001,
+          "duration": 4.944375000000001,
+          "gender": "Male",
+          "gender_confidence": 0.9818614721298218
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample_id": 2,
+      "audio_file": "sample_2_speaker_1272.wav",
+      "duration": 4.815,
+      "speakers_detected": 1,
+      "segments_count": 1,
+      "detected_speech_time": 3.965625,
+      "der_estimate": 0.17640186915887854,
+      "processing_time": 1.0912597179412842,
+      "segments": [
+        {
+          "speaker": "Male_SPEAKER_00",
+          "start": 0.48659375000000005,
+          "end": 4.45221875,
+          "duration": 3.965625,
+          "gender": "Male",
+          "gender_confidence": 0.9818609952926636
+        }
+      ],
+      "success": true
+    },
+    {
+      "sample_id": 3,
+      "audio_file": "sample_3_speaker_1272.wav",
+      "duration": 12.485,
+      "speakers_detected": 1,
+      "segments_count": 2,
+      "detected_speech_time": 10.799999999999997,
+      "der_estimate": 0.13496195434521444,
+      "processing_time": 3.9734079837799072,
+      "segments": [
+        {
+          "speaker": "Male_SPEAKER_00",
+          "start": 0.5372187500000001,
+          "end": 7.01721875,
+          "duration": 6.4799999999999995,
+          "gender": "Male",
+          "gender_confidence": 0.9818633198738098
+        },
+        {
+          "speaker": "Male_SPEAKER_00",
+          "start": 7.624718750000001,
+          "end": 11.94471875,
+          "duration": 4.3199999999999985,
+          "gender": "Male",
+          "gender_confidence": 0.9818605184555054
+        }
+      ],
+      "success": true
+    }
+  ],
+  "gender_classification_results": [
+    {
+      "sample_id": 1,
+      "audio_file": "sample_1_speaker_1272.wav",
+      "gender_predictions": [
+        "Male"
+      ],
+      "avg_confidence": 0.9818614721298218,
+      "consistent": true,
+      "segments_with_gender": 1
+    },
+    {
+      "sample_id": 2,
+      "audio_file": "sample_2_speaker_1272.wav",
+      "gender_predictions": [
+        "Male"
+      ],
+      "avg_confidence": 0.9818609952926636,
+      "consistent": true,
+      "segments_with_gender": 1
+    },
+    {
+      "sample_id": 3,
+      "audio_file": "sample_3_speaker_1272.wav",
+      "gender_predictions": [
+        "Male",
+        "Male"
+      ],
+      "avg_confidence": 0.9818619191646576,
+      "consistent": true,
+      "segments_with_gender": 2
+    }
+  ],
+  "performance_metrics": {},
+  "asr_summary": {
+    "total_samples": 3,
+    "successful_samples": 3,
+    "success_rate": 1.0,
+    "average_wer": 0.12463235294117647,
+    "average_cer": 0.030749354005167956,
+    "average_processing_time": 1.3149340152740479,
+    "total_audio_duration": 23.155,
+    "real_time_factor": 0.17036502033349787
+  },
+  "diarization_summary": {
+    "total_samples": 3,
+    "successful_samples": 3,
+    "success_rate": 1.0,
+    "average_der": 0.15563109516746165,
+    "total_speakers_detected": 3,
+    "total_segments": 4
+  },
+  "gender_summary": {
+    "samples_with_gender": 3,
+    "consistency_rate": 1.0,
+    "average_confidence": 0.9818614621957144,
+    "total_segments_classified": 4
+  }
+}
