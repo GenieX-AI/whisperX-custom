@@ -222,6 +222,18 @@ class EnhancedGenderClassifier:
                 features = np.concatenate([features, padding])
             else:
                 features = features[:192]
+            
+            # Apply z-score normalization to fix feature scale issue
+            # This prevents massive feature values from overwhelming the neural network bias
+            features_mean = np.mean(features)
+            features_std = np.std(features)
+            
+            # Avoid division by zero
+            if features_std > 1e-8:
+                features = (features - features_mean) / features_std
+            else:
+                # If std is too small, just center the features
+                features = features - features_mean
                 
             return features.astype(np.float32)
             
